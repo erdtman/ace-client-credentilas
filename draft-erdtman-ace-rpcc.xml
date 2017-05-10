@@ -53,9 +53,9 @@
    <abstract>
      <t>
        This document describes Transport Layer Security (TLS)
-       authentication using Raw-Public-Key and Pre-Shared-Key as the mechanism
-       for OAuth client authentication to the token endpoint. Defined for TLS
-       but equaly applicable for DTLS.
+       authentication using Raw-Public-Key and Pre-Shared-Key as new mechanisms
+       for OAuth client authentication to the token endpoint. Although defined
+       for TLS the mechanisms are equaly applicable for DTLS.
      </t>
    </abstract>
  </front>
@@ -73,8 +73,9 @@
        definition and use of additional client authentication mechanisms when
        interacting with the authorization server's token endpoint. This document
        describes two additional mechanisms of client authentication utilizing
-       Raw-Public-Key and Pre-Shared-Key TLS, which provides better security
-       characteristics than shared secrets.
+       Raw-Public-Key <xref target="RFC7250"/> and Pre-Shared-Key TLS
+       <xref target="RFC4279"/>, which provide better security characteristics
+       than shared secrets.
      </t>
 
      <section title="Requirements Language">
@@ -88,24 +89,24 @@
    <section anchor="pskClientAuth" title="Pre-Shared-Key for Client Authentication">
      <t>
        The following section defines, as an extension of
-       <xref target="RFC6749">OAuth 2.0, Section 2.3</xref>, the use of
-       Pre-Shared-Key with TLS as client credentials. Registered as
-       'tls_client_psk' in "OAuth Token Endpoint Authentication Methods"
-       registry.
+       <xref target="RFC6749">OAuth 2.0, Section 2.3</xref>, using
+       Pre-Shared-Key with TLS <xref target="RFC4279"/> to authenticate
+       the client.  This method is registered as 'tls_client_psk' in "OAuth
+       Token Endpoint Authentication Methods" registry.
      </t>
      <t>
-       Handshake is done according to <xref target="RFC4279" />,
-       client indicates support for Pre-Shared-Key cipher suit and
-       authorization server selects the Pre-Shared-Key cipher suit.
-       To enable authorization server to select the correct Pre shared key
-       client MUST send its client id in the ClientHello or ClientKeyExchange
-       message. How the authorization server maps a client id to a the client PSK
+       The (D)TLS handshake MUST be done according to <xref target="RFC4279" />,
+       with the client indicating support for one or more Pre-Shared-Key cipher
+       suites and authorization server selecting a Pre-Shared-Key cipher suite.
+       In order to enable authorization server to select the correct
+       pre-shared-key the client MUST send its client identifier in the
+       psk-identity field of the ClientKeyExchange message. How the
+       authorization server maps a client identifier to the pre-shared-key
        is out of scope for this specification.
      </t>
      <t>
-       TBD: define exactly how client id is sent to server in handshake,
-       it looks like one option would be to send it in "PSK identity" in the
-       ClientKeyExchange message.
+       Note that the client identity MUST be 2^16 bytes or shorter, in order
+       to fit into the psk-identity field.
      </t>
 
    </section>
@@ -114,18 +115,18 @@
      <t>
        The following section defines, as an extension of
        <xref target="RFC6749">OAuth 2.0, Section 2.3</xref>, the use of
-       Raw-Public-Key with DTLS as client credentials. Registered as
-       'tls_client_rpk' in "OAuth Token Endpoint Authentication Methods"
-       registry.
+       Raw-Public-Key with (D)TLS <xref target="RFC7250"/> to authenticate
+       the client. This method is registered as'tls_client_rpk' in "OAuth Token
+       Endpoint Authentication Methods" registry.
      </t>
      <t>
-       Handshake is done according to <xref target="RFC7250" />,
-       client indicates support for Raw-Public-Key certificate and
-       authorization server asks client send its Raw Public Key certificate.
-       To enable authorization server to validate the client RPK it MUST send
-       its client id in the ClientHello or ClientKeyExchange message. How the
-       authorization server maps a client id to a the client RPK is out of scope
-       for this specification.
+       The (D)TLS handshake MUST be done according to <xref target="RFC7250"/>,
+       with the client indicating support for Raw-Public-Key certificates and
+       the authorization server asking client send its Raw Public Key
+       certificate.  To enable authorization server to validate the client RPK
+       it MUST send its client identifier in the ClientHello or ClientKeyExchange
+       message. How the authorization server maps a client identifier to a the client
+       RPK is out of scope for this specification.
      </t>
      <t>
        TBD: define exactly how client id is sent to server in handshake.
