@@ -54,8 +54,8 @@
      <t>
        This document describes Transport Layer Security (TLS)
        authentication using Raw-Public-Key and Pre-Shared-Key as new mechanisms
-       for OAuth client authentication to the token endpoint. Although defined
-       for TLS the mechanisms are equally applicable for DTLS.
+       for OAuth client authentication. Although defined for TLS the mechanisms are
+       equally applicable for DTLS.
      </t>
    </abstract>
  </front>
@@ -65,7 +65,8 @@
      <t>
        This document describes Transport Layer Security (TLS)
        authentication using Raw-Public-Key and Pre-Shared-Key as the mechanism
-       for OAuth client authentication to the token endpoint.
+       for OAuth client authentication.  Examples of endpoint requiering client
+       authentication are token and introspection.
      </t>
      <t>
        The OAuth 2.0 Authorization Framework <xref target="RFC6749"/> defines a
@@ -125,7 +126,7 @@
        the authorization server asking client send its Raw Public Key
        certificate.  To enable authorization server to validate the client RPK
        it MUST send its client identifier in the ClientHello or
-       ClientKeyExchange message. 
+       ClientKeyExchange message.
      </t>
      <t>
        Authorization servers MAY use the following method to map a Raw Public
@@ -136,7 +137,7 @@
        handshake).
 
        An example is shown in <xref target="fig:knightsOfNi"/>.
-       
+
        <figure align="center" anchor="fig:knightsOfNi"
                title="Example encoding of a raw public key in the Named
                       Information URI Format">
@@ -149,7 +150,7 @@
          Encoding:
          ni:///sha-256;xzLa24yOBeCkos3VFzD2gd83Urohr9TsXqY9nhdDN0
          ]]></artwork>
-       </figure>	 
+       </figure>
      </t>
    </section>
 
