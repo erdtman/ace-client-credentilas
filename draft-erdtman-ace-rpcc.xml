@@ -55,7 +55,7 @@
        This document describes Transport Layer Security (TLS)
        authentication using Raw-Public-Key and Pre-Shared-Key as new mechanisms
        for OAuth client authentication to the token endpoint. Although defined
-       for TLS the mechanisms are equaly applicable for DTLS.
+       for TLS the mechanisms are equally applicable for DTLS.
      </t>
    </abstract>
  </front>
@@ -124,12 +124,32 @@
        with the client indicating support for Raw-Public-Key certificates and
        the authorization server asking client send its Raw Public Key
        certificate.  To enable authorization server to validate the client RPK
-       it MUST send its client identifier in the ClientHello or ClientKeyExchange
-       message. How the authorization server maps a client identifier to a the client
-       RPK is out of scope for this specification.
+       it MUST send its client identifier in the ClientHello or
+       ClientKeyExchange message. 
      </t>
      <t>
-       TBD: define exactly how client id is sent to server in handshake.
+       Authorization servers MAY use the following method to map a Raw Public
+       Key to a client identifier: The client identifier is generated from
+       the Raw Public Key using the procedure specified in <xref
+       target="RFC6920">section 3 of</xref>.  The digest is calculated
+       on the Raw Public Key only (not on the SubjectPublicKeyInfo used in the
+       handshake).
+
+       An example is shown in <xref target="fig:knightsOfNi"/>.
+       
+       <figure align="center" anchor="fig:knightsOfNi"
+               title="Example encoding of a raw public key in the Named
+                      Information URI Format">
+         <artwork align="left"><![CDATA[
+         Raw Public Key (Base64 encoded):
+         MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEEtboxNKPgxEKV9JTNzy
+         tUvAbxEfkCTVB9kOzheF5wRAoOz2NKP+ln+XLVAQSp1D6jfo09tppvN
+         poQA1nnBNH6A==";
+
+         Encoding:
+         ni:///sha-256;xzLa24yOBeCkos3VFzD2gd83Urohr9TsXqY9nhdDN0
+         ]]></artwork>
+       </figure>	 
      </t>
    </section>
 
@@ -182,6 +202,7 @@
      <?rfc include='reference.RFC.2119'?>
      <?rfc include='reference.RFC.4279'?>
      <?rfc include='reference.RFC.6749'?>
+     <?rfc include='reference.RFC.6920'?>
      <?rfc include='reference.RFC.7250'?>
      <?rfc include='reference.RFC.7591'?>
    </references>
