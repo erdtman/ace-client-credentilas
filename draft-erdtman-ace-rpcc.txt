@@ -172,8 +172,8 @@ Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
 
 4.  Acknowledgements
 
-   This document is highly inspired by [I-D.campbell-oauth-mtls] written
-   by B.  Campbell, J.  Bradley, N.  Sakimura and T.  Lodderstedt.
+   This document is highly inspired by [I-D.ietf-oauth-mtls] written by
+   B.  Campbell, J.  Bradley, N.  Sakimura and T.  Lodderstedt.
 
 5.  IANA Considerations
 
@@ -244,11 +244,10 @@ Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
 
 7.2.  Informative References
 
-   [I-D.campbell-oauth-mtls]
+   [I-D.ietf-oauth-mtls]
               Campbell, B., Bradley, J., Sakimura, N., and T.
               Lodderstedt, "Mutual TLS Profiles for OAuth Clients",
-              draft-campbell-oauth-mtls-01 (work in progress), April
-              2017.
+              draft-ietf-oauth-mtls-00 (work in progress), May 2017.
 
    [IANA.OAuth.Parameters]
               IANA, "OAuth Parameters",
@@ -272,6 +271,7 @@ Authors' Addresses
    Sweden
 
    Email: erdtman@spotify.com
+
 
 
 

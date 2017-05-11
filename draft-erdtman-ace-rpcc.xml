@@ -156,7 +156,7 @@
 
    <section anchor="Acknowledgements" title="Acknowledgements">
      <t>
-       This document is highly inspired by <xref target="I-D.campbell-oauth-mtls"/>
+       This document is highly inspired by <xref target="I-D.ietf-oauth-mtls"/>
        written by B. Campbell, J. Bradley, N. Sakimura and T. Lodderstedt.
      </t>
    </section>
@@ -209,8 +209,7 @@
    </references>
 
    <references title="Informative References">
-
-     <?rfc include='http://xml2rfc.tools.ietf.org/public/rfc/bibxml3/reference.I-D.draft-campbell-oauth-mtls-01.xml'?>
+     <?rfc include='reference.I-D.ietf-oauth-mtls'?>
 
      <reference anchor="IANA.OAuth.Parameters" target="http://www.iana.org/assignments/oauth-parameters">
        <front>
