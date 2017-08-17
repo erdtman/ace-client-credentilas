@@ -124,9 +124,9 @@
        The (D)TLS handshake MUST be done according to <xref target="RFC7250"/>,
        with the client indicating support for Raw-Public-Key certificates and
        the authorization server asking client send its Raw Public Key
-       certificate.  To enable authorization server to validate the client RPK
-       it MUST send its client identifier in the ClientHello or
-       ClientKeyExchange message.
+       certificate.  Since the client cannot send an explicit client identifier
+       in the handshake, the authorization server MUST the derive a client
+       identifier from RPK that the client uses.
      </t>
      <t>
        Authorization servers MAY use the following method to map a Raw Public
