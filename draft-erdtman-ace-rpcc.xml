@@ -65,7 +65,7 @@
      <t>
        This document describes Transport Layer Security (TLS)
        authentication using Raw-Public-Key and Pre-Shared-Key as the mechanism
-       for OAuth client authentication.  Examples of endpoint requiering client
+       for OAuth client authentication.  Examples of endpoint requiring client
        authentication are token and introspection.
      </t>
      <t>
@@ -117,7 +117,7 @@
        The following section defines, as an extension of
        <xref target="RFC6749">OAuth 2.0, Section 2.3</xref>, the use of
        Raw-Public-Key with (D)TLS <xref target="RFC7250"/> to authenticate
-       the client. This method is registered as'tls_client_rpk' in "OAuth Token
+       the client. This method is registered as 'tls_client_rpk' in "OAuth Token
        Endpoint Authentication Methods" registry.
      </t>
      <t>
