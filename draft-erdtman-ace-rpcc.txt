@@ -5,8 +5,8 @@
 ACE Working Group                                               L. Seitz
 Internet-Draft                                                 RISE SICS
 Intended status: Informational                                S. Erdtman
-Expires: November 12, 2017                                    Spotify AB
-                                                            May 11, 2017
+Expires: April 22, 2018                                       Spotify AB
+                                                        October 19, 2017
 
 
      Raw-Public-Key and Pre-Shared-Key as OAuth client credentials
@@ -34,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 12, 2017.
+   This Internet-Draft will expire on April 22, 2018.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Seitz & Erdtman         Expires November 12, 2017               [Page 1]
+Seitz & Erdtman          Expires April 22, 2018                 [Page 1]
 
-Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
+Internet-Draft           draft-erdtman-ace-rpcc             October 2017
 
 
 Table of Contents
@@ -79,7 +79,7 @@ Table of Contents
 
    This document describes Transport Layer Security (TLS) authentication
    using Raw-Public-Key and Pre-Shared-Key as the mechanism for OAuth
-   client authentication.  Examples of endpoint requiering client
+   client authentication.  Examples of endpoint requiring client
    authentication are token and introspection.
 
    The OAuth 2.0 Authorization Framework [RFC6749] defines a shared
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Seitz & Erdtman         Expires November 12, 2017               [Page 2]
+Seitz & Erdtman          Expires April 22, 2018                 [Page 2]
 
-Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
+Internet-Draft           draft-erdtman-ace-rpcc             October 2017
 
 
    The (D)TLS handshake MUST be done according to [RFC4279], with the
@@ -130,23 +130,23 @@ Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
 
    The following section defines, as an extension of OAuth 2.0,
    Section 2.3 [RFC6749], the use of Raw-Public-Key with (D)TLS
-   [RFC7250] to authenticate the client.  This method is registered
-   as'tls_client_rpk' in "OAuth Token Endpoint Authentication Methods"
+   [RFC7250] to authenticate the client.  This method is registered as
+   'tls_client_rpk' in "OAuth Token Endpoint Authentication Methods"
    registry.
 
    The (D)TLS handshake MUST be done according to [RFC7250], with the
    client indicating support for Raw-Public-Key certificates and the
    authorization server asking client send its Raw Public Key
-   certificate.  To enable authorization server to validate the client
-   RPK it MUST send its client identifier in the ClientHello or
-   ClientKeyExchange message.
+   certificate.  Since the client cannot send an explicit client
+   identifier in the handshake, the authorization server MUST the derive
+   a client identifier from RPK that the client uses.
 
-   Authorization servers MAY use the following method to map a Raw
-   Public Key to a client identifier: The client identifier is generated
-   from the Raw Public Key using the procedure specified in section 3 of
-   [RFC6920].  The digest is calculated on the Raw Public Key only (not
-   on the SubjectPublicKeyInfo used in the handshake).  An example is
-   shown in Figure 1.
+   Note to implementers: Authorization servers can use the following
+   method to map a Raw Public Key to a client identifier: The client
+   identifier is generated from the Raw Public Key using the procedure
+   specified in section 3 of [RFC6920].  The digest is calculated on the
+   Raw Public Key only (not on the SubjectPublicKeyInfo used in the
+   handshake).  An example is shown in Figure 1.
 
             Raw Public Key (Base64 encoded):
             MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEEtboxNKPgxEKV9JTNzy
@@ -165,9 +165,9 @@ Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
 
 
 
-Seitz & Erdtman         Expires November 12, 2017               [Page 3]
+Seitz & Erdtman          Expires April 22, 2018                 [Page 3]
 
-Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
+Internet-Draft           draft-erdtman-ace-rpcc             October 2017
 
 
 4.  Acknowledgements
@@ -205,49 +205,49 @@ Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <http://www.rfc-editor.org/info/rfc2119>.
+              DOI 10.17487/RFC2119, March 1997, <https://www.rfc-
+              editor.org/info/rfc2119>.
 
    [RFC4279]  Eronen, P., Ed. and H. Tschofenig, Ed., "Pre-Shared Key
               Ciphersuites for Transport Layer Security (TLS)",
               RFC 4279, DOI 10.17487/RFC4279, December 2005,
-              <http://www.rfc-editor.org/info/rfc4279>.
+              <https://www.rfc-editor.org/info/rfc4279>.
 
    [RFC6749]  Hardt, D., Ed., "The OAuth 2.0 Authorization Framework",
               RFC 6749, DOI 10.17487/RFC6749, October 2012,
-              <http://www.rfc-editor.org/info/rfc6749>.
+              <https://www.rfc-editor.org/info/rfc6749>.
 
 
 
 
 
-Seitz & Erdtman         Expires November 12, 2017               [Page 4]
+Seitz & Erdtman          Expires April 22, 2018                 [Page 4]
 
-Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
+Internet-Draft           draft-erdtman-ace-rpcc             October 2017
 
 
    [RFC6920]  Farrell, S., Kutscher, D., Dannewitz, C., Ohlman, B.,
               Keranen, A., and P. Hallam-Baker, "Naming Things with
               Hashes", RFC 6920, DOI 10.17487/RFC6920, April 2013,
-              <http://www.rfc-editor.org/info/rfc6920>.
+              <https://www.rfc-editor.org/info/rfc6920>.
 
    [RFC7250]  Wouters, P., Ed., Tschofenig, H., Ed., Gilmore, J.,
               Weiler, S., and T. Kivinen, "Using Raw Public Keys in
               Transport Layer Security (TLS) and Datagram Transport
               Layer Security (DTLS)", RFC 7250, DOI 10.17487/RFC7250,
-              June 2014, <http://www.rfc-editor.org/info/rfc7250>.
+              June 2014, <https://www.rfc-editor.org/info/rfc7250>.
 
    [RFC7591]  Richer, J., Ed., Jones, M., Bradley, J., Machulak, M., and
               P. Hunt, "OAuth 2.0 Dynamic Client Registration Protocol",
               RFC 7591, DOI 10.17487/RFC7591, July 2015,
-              <http://www.rfc-editor.org/info/rfc7591>.
+              <https://www.rfc-editor.org/info/rfc7591>.
 
 7.2.  Informative References
 
    [I-D.ietf-oauth-mtls]
               Campbell, B., Bradley, J., Sakimura, N., and T.
-              Lodderstedt, "Mutual TLS Profiles for OAuth Clients",
-              draft-ietf-oauth-mtls-00 (work in progress), May 2017.
+              Lodderstedt, "Mutual TLS Profile for OAuth 2.0", draft-
+              ietf-oauth-mtls-04 (work in progress), October 2017.
 
    [IANA.OAuth.Parameters]
               IANA, "OAuth Parameters",
@@ -261,7 +261,7 @@ Authors' Addresses
    Lund  223 70
    SWEDEN
 
-   Email: ludwig@ri.se
+   Email: ludwig.seitz@ri.se
 
 
    Samuel Erdtman
@@ -277,4 +277,4 @@ Authors' Addresses
 
 
 
-Seitz & Erdtman         Expires November 12, 2017               [Page 5]
+Seitz & Erdtman          Expires April 22, 2018                 [Page 5]

@@ -129,11 +129,11 @@
        identifier from RPK that the client uses.
      </t>
      <t>
-       Authorization servers MAY use the following method to map a Raw Public
-       Key to a client identifier: The client identifier is generated from
-       the Raw Public Key using the procedure specified in <xref
-       target="RFC6920">section 3 of</xref>.  The digest is calculated
-       on the Raw Public Key only (not on the SubjectPublicKeyInfo used in the
+       Note to implementers: Authorization servers can use the following method
+       to map a Raw Public Key to a client identifier: The client identifier is
+       generated from the Raw Public Key using the procedure specified in <xref
+       target="RFC6920">section 3 of</xref>.  The digest is calculated on the
+       Raw Public Key only (not on the SubjectPublicKeyInfo used in the
        handshake).
 
        An example is shown in <xref target="fig:knightsOfNi"/>.
