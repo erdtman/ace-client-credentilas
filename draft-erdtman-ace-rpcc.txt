@@ -103,9 +103,9 @@ Table of Contents
    Section 2.3 [RFC6749], using Pre-Shared-Key with TLS [RFC4279] to
    authenticate the client.  This method is registered as
    'tls_client_psk' in "OAuth Token Endpoint Authentication Methods"
-   registry.
-
-
+   registry.  If this method is to be used, the client and the
+   Authorization Server MUST share a secret key, and they MUST agree on
+   an identifier for this key.
 
 
 
@@ -118,10 +118,10 @@ Internet-Draft           draft-erdtman-ace-rpcc             October 2017
    client indicating support for one or more Pre-Shared-Key cipher
    suites and authorization server selecting a Pre-Shared-Key cipher
    suite.  In order to enable authorization server to select the correct
-   pre-shared-key the client MUST send its client identifier in the psk-
+   pre-shared-key the client MUST send the key identifier in the psk-
    identity field of the ClientKeyExchange message.  How the
-   authorization server maps a client identifier to the pre-shared-key
-   is out of scope for this specification.
+   authorization server maps an identifier to a pre-shared-key, and to a
+   client identity is out of scope for this specification.
 
    Note that the client identity MUST be 2^16 bytes or shorter, in order
    to fit into the psk-identity field.
