@@ -40,6 +40,18 @@
      </address>
    </author>
 
+   <author fullname="Marco Tiloca" initials="M." surname="Tiloca">
+     <organization>RISE SICS AB</organization>
+     <address>
+       <postal>
+         <street>Isafjordsgatan 22</street>
+         <code>164 29</code> <city>Stockholm</city>
+         <country>Sweden</country>
+       </postal>
+       <email>marco.tiloca@ri.se</email>
+     </address>
+   </author>
+
    <date year="2017" />
 
    <area>Security</area>

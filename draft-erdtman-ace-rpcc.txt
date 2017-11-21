@@ -5,8 +5,10 @@
 ACE Working Group                                               L. Seitz
 Internet-Draft                                                 RISE SICS
 Intended status: Informational                                S. Erdtman
-Expires: April 22, 2018                                       Spotify AB
-                                                        October 19, 2017
+Expires: May 25, 2018                                         Spotify AB
+                                                               M. Tiloca
+                                                            RISE SICS AB
+                                                       November 21, 2017
 
 
      Raw-Public-Key and Pre-Shared-Key as OAuth client credentials
@@ -27,14 +29,14 @@ Status of This Memo
    Internet-Drafts are working documents of the Internet Engineering
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at http://datatracker.ietf.org/drafts/current/.
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 22, 2018.
+   This Internet-Draft will expire on May 25, 2018.
 
 Copyright Notice
 
@@ -43,20 +45,21 @@ Copyright Notice
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
-   (http://trustee.ietf.org/license-info) in effect on the date of
+   (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
    include Simplified BSD License text as described in Section 4.e of
+
+
+
+Seitz, et al.             Expires May 25, 2018                  [Page 1]
+
+Internet-Draft           draft-erdtman-ace-rpcc            November 2017
+
+
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
-
-
-
-Seitz & Erdtman          Expires April 22, 2018                 [Page 1]
-
-Internet-Draft           draft-erdtman-ace-rpcc             October 2017
-
 
 Table of Contents
 
@@ -103,16 +106,17 @@ Table of Contents
    Section 2.3 [RFC6749], using Pre-Shared-Key with TLS [RFC4279] to
    authenticate the client.  This method is registered as
    'tls_client_psk' in "OAuth Token Endpoint Authentication Methods"
+
+
+
+Seitz, et al.             Expires May 25, 2018                  [Page 2]
+
+Internet-Draft           draft-erdtman-ace-rpcc            November 2017
+
+
    registry.  If this method is to be used, the client and the
    Authorization Server MUST share a secret key, and they MUST agree on
    an identifier for this key.
-
-
-
-Seitz & Erdtman          Expires April 22, 2018                 [Page 2]
-
-Internet-Draft           draft-erdtman-ace-rpcc             October 2017
-
 
    The (D)TLS handshake MUST be done according to [RFC4279], with the
    client indicating support for one or more Pre-Shared-Key cipher
@@ -161,13 +165,9 @@ Internet-Draft           draft-erdtman-ace-rpcc             October 2017
 
 
 
-
-
-
-
-Seitz & Erdtman          Expires April 22, 2018                 [Page 3]
+Seitz, et al.             Expires May 25, 2018                  [Page 3]
 
-Internet-Draft           draft-erdtman-ace-rpcc             October 2017
+Internet-Draft           draft-erdtman-ace-rpcc            November 2017
 
 
 4.  Acknowledgements
@@ -205,8 +205,8 @@ Internet-Draft           draft-erdtman-ace-rpcc             October 2017
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997, <https://www.rfc-
-              editor.org/info/rfc2119>.
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
 
    [RFC4279]  Eronen, P., Ed. and H. Tschofenig, Ed., "Pre-Shared Key
               Ciphersuites for Transport Layer Security (TLS)",
@@ -221,9 +221,9 @@ Internet-Draft           draft-erdtman-ace-rpcc             October 2017
 
 
 
-Seitz & Erdtman          Expires April 22, 2018                 [Page 4]
+Seitz, et al.             Expires May 25, 2018                  [Page 4]
 
-Internet-Draft           draft-erdtman-ace-rpcc             October 2017
+Internet-Draft           draft-erdtman-ace-rpcc            November 2017
 
 
    [RFC6920]  Farrell, S., Kutscher, D., Dannewitz, C., Ohlman, B.,
@@ -247,7 +247,7 @@ Internet-Draft           draft-erdtman-ace-rpcc             October 2017
    [I-D.ietf-oauth-mtls]
               Campbell, B., Bradley, J., Sakimura, N., and T.
               Lodderstedt, "Mutual TLS Profile for OAuth 2.0", draft-
-              ietf-oauth-mtls-04 (work in progress), October 2017.
+              ietf-oauth-mtls-05 (work in progress), November 2017.
 
    [IANA.OAuth.Parameters]
               IANA, "OAuth Parameters",
@@ -277,4 +277,60 @@ Authors' Addresses
 
 
 
-Seitz & Erdtman          Expires April 22, 2018                 [Page 5]
+Seitz, et al.             Expires May 25, 2018                  [Page 5]
+
+Internet-Draft           draft-erdtman-ace-rpcc            November 2017
+
+
+   Marco Tiloca
+   RISE SICS AB
+   Isafjordsgatan 22
+   Stockholm  164 29
+   Sweden
+
+   Email: marco.tiloca@ri.se
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Seitz, et al.             Expires May 25, 2018                  [Page 6]
