@@ -10,9 +10,9 @@
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
 
-<rfc category="info" docName="draft-erdtman-ace-rpcc-00" ipr="trust200902">
+<rfc category="info" docName="draft-erdtman-oauth-rpcc-00" ipr="trust200902">
  <front>
-   <title abbrev="draft-erdtman-ace-rpcc">
+   <title abbrev="draft-erdtman-oauth-rpcc">
      Raw-Public-Key and Pre-Shared-Key as OAuth client credentials
    </title>
 
@@ -56,7 +56,7 @@
 
    <area>Security</area>
 
-   <workgroup>ACE Working Group</workgroup>
+   <workgroup>Web Authorization Protocol</workgroup>
 
    <keyword>
      OAuth 2.0, Client Credentials, DTLS, TLS, Raw-Public-Key, Pre-Shared-Key
