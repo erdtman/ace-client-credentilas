@@ -5,8 +5,10 @@
 ACE Working Group                                               L. Seitz
 Internet-Draft                                                 RISE SICS
 Intended status: Informational                                S. Erdtman
-Expires: November 12, 2017                                    Spotify AB
-                                                            May 11, 2017
+Expires: May 25, 2018                                         Spotify AB
+                                                               M. Tiloca
+                                                            RISE SICS AB
+                                                       November 21, 2017
 
 
      Raw-Public-Key and Pre-Shared-Key as OAuth client credentials
@@ -27,14 +29,14 @@ Status of This Memo
    Internet-Drafts are working documents of the Internet Engineering
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at http://datatracker.ietf.org/drafts/current/.
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 12, 2017.
+   This Internet-Draft will expire on May 25, 2018.
 
 Copyright Notice
 
@@ -43,20 +45,21 @@ Copyright Notice
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
-   (http://trustee.ietf.org/license-info) in effect on the date of
+   (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
    include Simplified BSD License text as described in Section 4.e of
+
+
+
+Seitz, et al.             Expires May 25, 2018                  [Page 1]
+
+Internet-Draft           draft-erdtman-ace-rpcc            November 2017
+
+
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
-
-
-
-Seitz & Erdtman         Expires November 12, 2017               [Page 1]
-
-Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
-
 
 Table of Contents
 
@@ -79,7 +82,7 @@ Table of Contents
 
    This document describes Transport Layer Security (TLS) authentication
    using Raw-Public-Key and Pre-Shared-Key as the mechanism for OAuth
-   client authentication.  Examples of endpoint requiering client
+   client authentication.  Examples of endpoint requiring client
    authentication are token and introspection.
 
    The OAuth 2.0 Authorization Framework [RFC6749] defines a shared
@@ -103,25 +106,26 @@ Table of Contents
    Section 2.3 [RFC6749], using Pre-Shared-Key with TLS [RFC4279] to
    authenticate the client.  This method is registered as
    'tls_client_psk' in "OAuth Token Endpoint Authentication Methods"
-   registry.
 
 
 
-
-
-Seitz & Erdtman         Expires November 12, 2017               [Page 2]
+Seitz, et al.             Expires May 25, 2018                  [Page 2]
 
-Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
+Internet-Draft           draft-erdtman-ace-rpcc            November 2017
 
+
+   registry.  If this method is to be used, the client and the
+   Authorization Server MUST share a secret key, and they MUST agree on
+   an identifier for this key.
 
    The (D)TLS handshake MUST be done according to [RFC4279], with the
    client indicating support for one or more Pre-Shared-Key cipher
    suites and authorization server selecting a Pre-Shared-Key cipher
    suite.  In order to enable authorization server to select the correct
-   pre-shared-key the client MUST send its client identifier in the psk-
+   pre-shared-key the client MUST send the key identifier in the psk-
    identity field of the ClientKeyExchange message.  How the
-   authorization server maps a client identifier to the pre-shared-key
-   is out of scope for this specification.
+   authorization server maps an identifier to a pre-shared-key, and to a
+   client identity is out of scope for this specification.
 
    Note that the client identity MUST be 2^16 bytes or shorter, in order
    to fit into the psk-identity field.
@@ -130,23 +134,23 @@ Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
 
    The following section defines, as an extension of OAuth 2.0,
    Section 2.3 [RFC6749], the use of Raw-Public-Key with (D)TLS
-   [RFC7250] to authenticate the client.  This method is registered
-   as'tls_client_rpk' in "OAuth Token Endpoint Authentication Methods"
+   [RFC7250] to authenticate the client.  This method is registered as
+   'tls_client_rpk' in "OAuth Token Endpoint Authentication Methods"
    registry.
 
    The (D)TLS handshake MUST be done according to [RFC7250], with the
    client indicating support for Raw-Public-Key certificates and the
    authorization server asking client send its Raw Public Key
-   certificate.  To enable authorization server to validate the client
-   RPK it MUST send its client identifier in the ClientHello or
-   ClientKeyExchange message.
+   certificate.  Since the client cannot send an explicit client
+   identifier in the handshake, the authorization server MUST the derive
+   a client identifier from RPK that the client uses.
 
-   Authorization servers MAY use the following method to map a Raw
-   Public Key to a client identifier: The client identifier is generated
-   from the Raw Public Key using the procedure specified in section 3 of
-   [RFC6920].  The digest is calculated on the Raw Public Key only (not
-   on the SubjectPublicKeyInfo used in the handshake).  An example is
-   shown in Figure 1.
+   Note to implementers: Authorization servers can use the following
+   method to map a Raw Public Key to a client identifier: The client
+   identifier is generated from the Raw Public Key using the procedure
+   specified in section 3 of [RFC6920].  The digest is calculated on the
+   Raw Public Key only (not on the SubjectPublicKeyInfo used in the
+   handshake).  An example is shown in Figure 1.
 
             Raw Public Key (Base64 encoded):
             MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEEtboxNKPgxEKV9JTNzy
@@ -161,13 +165,9 @@ Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
 
 
 
-
-
-
-
-Seitz & Erdtman         Expires November 12, 2017               [Page 3]
+Seitz, et al.             Expires May 25, 2018                  [Page 3]
 
-Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
+Internet-Draft           draft-erdtman-ace-rpcc            November 2017
 
 
 4.  Acknowledgements
@@ -206,48 +206,48 @@ Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
-              <http://www.rfc-editor.org/info/rfc2119>.
+              <https://www.rfc-editor.org/info/rfc2119>.
 
    [RFC4279]  Eronen, P., Ed. and H. Tschofenig, Ed., "Pre-Shared Key
               Ciphersuites for Transport Layer Security (TLS)",
               RFC 4279, DOI 10.17487/RFC4279, December 2005,
-              <http://www.rfc-editor.org/info/rfc4279>.
+              <https://www.rfc-editor.org/info/rfc4279>.
 
    [RFC6749]  Hardt, D., Ed., "The OAuth 2.0 Authorization Framework",
               RFC 6749, DOI 10.17487/RFC6749, October 2012,
-              <http://www.rfc-editor.org/info/rfc6749>.
+              <https://www.rfc-editor.org/info/rfc6749>.
 
 
 
 
 
-Seitz & Erdtman         Expires November 12, 2017               [Page 4]
+Seitz, et al.             Expires May 25, 2018                  [Page 4]
 
-Internet-Draft           draft-erdtman-ace-rpcc                 May 2017
+Internet-Draft           draft-erdtman-ace-rpcc            November 2017
 
 
    [RFC6920]  Farrell, S., Kutscher, D., Dannewitz, C., Ohlman, B.,
               Keranen, A., and P. Hallam-Baker, "Naming Things with
               Hashes", RFC 6920, DOI 10.17487/RFC6920, April 2013,
-              <http://www.rfc-editor.org/info/rfc6920>.
+              <https://www.rfc-editor.org/info/rfc6920>.
 
    [RFC7250]  Wouters, P., Ed., Tschofenig, H., Ed., Gilmore, J.,
               Weiler, S., and T. Kivinen, "Using Raw Public Keys in
               Transport Layer Security (TLS) and Datagram Transport
               Layer Security (DTLS)", RFC 7250, DOI 10.17487/RFC7250,
-              June 2014, <http://www.rfc-editor.org/info/rfc7250>.
+              June 2014, <https://www.rfc-editor.org/info/rfc7250>.
 
    [RFC7591]  Richer, J., Ed., Jones, M., Bradley, J., Machulak, M., and
               P. Hunt, "OAuth 2.0 Dynamic Client Registration Protocol",
               RFC 7591, DOI 10.17487/RFC7591, July 2015,
-              <http://www.rfc-editor.org/info/rfc7591>.
+              <https://www.rfc-editor.org/info/rfc7591>.
 
 7.2.  Informative References
 
    [I-D.ietf-oauth-mtls]
               Campbell, B., Bradley, J., Sakimura, N., and T.
-              Lodderstedt, "Mutual TLS Profiles for OAuth Clients",
-              draft-ietf-oauth-mtls-00 (work in progress), May 2017.
+              Lodderstedt, "Mutual TLS Profile for OAuth 2.0", draft-
+              ietf-oauth-mtls-05 (work in progress), November 2017.
 
    [IANA.OAuth.Parameters]
               IANA, "OAuth Parameters",
@@ -261,7 +261,7 @@ Authors' Addresses
    Lund  223 70
    SWEDEN
 
-   Email: ludwig@ri.se
+   Email: ludwig.seitz@ri.se
 
 
    Samuel Erdtman
@@ -277,4 +277,60 @@ Authors' Addresses
 
 
 
-Seitz & Erdtman         Expires November 12, 2017               [Page 5]
+Seitz, et al.             Expires May 25, 2018                  [Page 5]
+
+Internet-Draft           draft-erdtman-ace-rpcc            November 2017
+
+
+   Marco Tiloca
+   RISE SICS AB
+   Isafjordsgatan 22
+   Stockholm  164 29
+   Sweden
+
+   Email: marco.tiloca@ri.se
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Seitz, et al.             Expires May 25, 2018                  [Page 6]
