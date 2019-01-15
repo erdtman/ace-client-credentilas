@@ -3,16 +3,16 @@
 
 
 ACE Working Group                                               L. Seitz
-Internet-Draft                                                 RISE SICS
+Internet-Draft                                                      RISE
 Intended status: Informational                                S. Erdtman
-Expires: May 25, 2018                                         Spotify AB
+Expires: July 19, 2019                                        Spotify AB
                                                                M. Tiloca
                                                             RISE SICS AB
-                                                       November 21, 2017
+                                                                    2017
 
 
      Raw-Public-Key and Pre-Shared-Key as OAuth client credentials
-                       draft-erdtman-ace-rpcc-00
+                       draft-erdtman-ace-rpcc-01
 
 Abstract
 
@@ -29,14 +29,14 @@ Status of This Memo
    Internet-Drafts are working documents of the Internet Engineering
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at https://datatracker.ietf.org/drafts/current/.
+   Drafts is at http://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 25, 2018.
+   This Internet-Draft will expire on July 19, 2019.
 
 Copyright Notice
 
@@ -45,7 +45,7 @@ Copyright Notice
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
-   (https://trustee.ietf.org/license-info) in effect on the date of
+   (http://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Seitz, et al.             Expires May 25, 2018                  [Page 1]
+Seitz, et al.             Expires July 19, 2019                 [Page 1]
 
-Internet-Draft           draft-erdtman-ace-rpcc            November 2017
+Internet-Draft           draft-erdtman-ace-rpcc                     2017
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -65,7 +65,7 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
      1.1.  Requirements Language . . . . . . . . . . . . . . . . . .   2
-   2.  Pre-Shared-Key for Client Authentication  . . . . . . . . . .   2
+   2.  Pre-Shared-Key for Client Authentication  . . . . . . . . . .   3
    3.  Raw-Public-Key for Client Authentication  . . . . . . . . . .   3
    4.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   4
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   4
@@ -82,7 +82,7 @@ Table of Contents
 
    This document describes Transport Layer Security (TLS) authentication
    using Raw-Public-Key and Pre-Shared-Key as the mechanism for OAuth
-   client authentication.  Examples of endpoint requiring client
+   client authentication.  Examples of endpoints requiring client
    authentication are token and introspection.
 
    The OAuth 2.0 Authorization Framework [RFC6749] defines a shared
@@ -98,7 +98,21 @@ Table of Contents
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-   document are to be interpreted as described in RFC 2119 [RFC2119].
+   document are to be interpreted as described in BCP 14 [RFC2119]
+   [RFC8174] when, and only when, they appear in all capitals, as shown
+   here.
+
+
+
+
+
+
+
+
+Seitz, et al.             Expires July 19, 2019                 [Page 2]
+
+Internet-Draft           draft-erdtman-ace-rpcc                     2017
+
 
 2.  Pre-Shared-Key for Client Authentication
 
@@ -106,14 +120,6 @@ Table of Contents
    Section 2.3 [RFC6749], using Pre-Shared-Key with TLS [RFC4279] to
    authenticate the client.  This method is registered as
    'tls_client_psk' in "OAuth Token Endpoint Authentication Methods"
-
-
-
-Seitz, et al.             Expires May 25, 2018                  [Page 2]
-
-Internet-Draft           draft-erdtman-ace-rpcc            November 2017
-
-
    registry.  If this method is to be used, the client and the
    Authorization Server MUST share a secret key, and they MUST agree on
    an identifier for this key.
@@ -152,6 +158,18 @@ Internet-Draft           draft-erdtman-ace-rpcc            November 2017
    Raw Public Key only (not on the SubjectPublicKeyInfo used in the
    handshake).  An example is shown in Figure 1.
 
+
+
+
+
+
+
+
+Seitz, et al.             Expires July 19, 2019                 [Page 3]
+
+Internet-Draft           draft-erdtman-ace-rpcc                     2017
+
+
             Raw Public Key (Base64 encoded):
             MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEEtboxNKPgxEKV9JTNzy
             tUvAbxEfkCTVB9kOzheF5wRAoOz2NKP+ln+XLVAQSp1D6jfo09tppvN
@@ -162,13 +180,6 @@ Internet-Draft           draft-erdtman-ace-rpcc            November 2017
 
         Figure 1: Example encoding of a raw public key in the Named
                           Information URI Format
-
-
-
-Seitz, et al.             Expires May 25, 2018                  [Page 3]
-
-Internet-Draft           draft-erdtman-ace-rpcc            November 2017
-
 
 4.  Acknowledgements
 
@@ -205,8 +216,15 @@ Internet-Draft           draft-erdtman-ace-rpcc            November 2017
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
+              DOI 10.17487/RFC2119, March 1997, <https://www.rfc-
+              editor.org/info/rfc2119>.
+
+
+
+Seitz, et al.             Expires July 19, 2019                 [Page 4]
+
+Internet-Draft           draft-erdtman-ace-rpcc                     2017
+
 
    [RFC4279]  Eronen, P., Ed. and H. Tschofenig, Ed., "Pre-Shared Key
               Ciphersuites for Transport Layer Security (TLS)",
@@ -216,15 +234,6 @@ Internet-Draft           draft-erdtman-ace-rpcc            November 2017
    [RFC6749]  Hardt, D., Ed., "The OAuth 2.0 Authorization Framework",
               RFC 6749, DOI 10.17487/RFC6749, October 2012,
               <https://www.rfc-editor.org/info/rfc6749>.
-
-
-
-
-
-Seitz, et al.             Expires May 25, 2018                  [Page 4]
-
-Internet-Draft           draft-erdtman-ace-rpcc            November 2017
-
 
    [RFC6920]  Farrell, S., Kutscher, D., Dannewitz, C., Ohlman, B.,
               Keranen, A., and P. Hallam-Baker, "Naming Things with
@@ -242,12 +251,17 @@ Internet-Draft           draft-erdtman-ace-rpcc            November 2017
               RFC 7591, DOI 10.17487/RFC7591, July 2015,
               <https://www.rfc-editor.org/info/rfc7591>.
 
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
 7.2.  Informative References
 
    [I-D.ietf-oauth-mtls]
               Campbell, B., Bradley, J., Sakimura, N., and T.
-              Lodderstedt, "Mutual TLS Profile for OAuth 2.0", draft-
-              ietf-oauth-mtls-05 (work in progress), November 2017.
+              Lodderstedt, "OAuth 2.0 Mutual TLS Client Authentication
+              and Certificate Bound Access Tokens", draft-ietf-oauth-
+              mtls-12 (work in progress), October 2018.
 
    [IANA.OAuth.Parameters]
               IANA, "OAuth Parameters",
@@ -255,8 +269,21 @@ Internet-Draft           draft-erdtman-ace-rpcc            November 2017
 
 Authors' Addresses
 
+
+
+
+
+
+
+
+
+Seitz, et al.             Expires July 19, 2019                 [Page 5]
+
+Internet-Draft           draft-erdtman-ace-rpcc                     2017
+
+
    Ludwig Seitz
-   RISE SICS
+   RISE
    Scheelevaegen 17
    Lund  223 70
    SWEDEN
@@ -271,15 +298,6 @@ Authors' Addresses
    Sweden
 
    Email: erdtman@spotify.com
-
-
-
-
-
-
-Seitz, et al.             Expires May 25, 2018                  [Page 5]
-
-Internet-Draft           draft-erdtman-ace-rpcc            November 2017
 
 
    Marco Tiloca
@@ -315,22 +333,4 @@ Internet-Draft           draft-erdtman-ace-rpcc            November 2017
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Seitz, et al.             Expires May 25, 2018                  [Page 6]
+Seitz, et al.             Expires July 19, 2019                 [Page 6]

@@ -221,6 +221,7 @@
      <?rfc include='reference.RFC.6920'?>
      <?rfc include='reference.RFC.7250'?>
      <?rfc include='reference.RFC.7591'?>
+     <?rfc include='reference.RFC.8174'?>
    </references>
 
    <references title="Informative References">
