@@ -17,7 +17,7 @@
    </title>
 
    <author fullname="Ludwig Seitz" initials="L." surname="Seitz">
-     <organization>RISE SICS</organization>
+     <organization>RISE</organization>
      <address>
        <postal>
          <street>Scheelevaegen 17</street>
@@ -65,7 +65,7 @@
      <t>
        This document describes Transport Layer Security (TLS)
        authentication using Raw-Public-Key and Pre-Shared-Key as the mechanism
-       for OAuth client authentication.  Examples of endpoint requiring client
+       for OAuth client authentication.  Examples of endpoints requiring client
        authentication are token and introspection.
      </t>
      <t>
@@ -82,8 +82,10 @@
      <section title="Requirements Language">
        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-       document are to be interpreted as described in <xref
-       target="RFC2119">RFC 2119</xref>.</t>
+       document are to be interpreted as described in BCP 14 <xref
+       target="RFC2119"/> <xref target="RFC8174"/> when, and only when, they
+       appear in all capitals, as shown here.</t>
+
      </section>
    </section>
 
